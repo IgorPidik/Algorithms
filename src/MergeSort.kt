@@ -1,6 +1,6 @@
 /**
- * Created by igor on 5.7.2017.
- */
+* Created by igor on 5.7.2017.
+*/
 
 fun mergeSort(array: Array<Int>) {
     mergeSort(array, 0, array.size - 1)
@@ -14,7 +14,6 @@ private fun mergeSort(array: Array<Int>, startPoint: Int, endPoint: Int) {
         merge(array, startPoint, midPoint, endPoint)
     }
 }
-
 
 private fun merge(array: Array<Int>, startPoint: Int, midPoint: Int, endPoint: Int) {
     val subArray1 = array.sliceArray(startPoint..midPoint)
