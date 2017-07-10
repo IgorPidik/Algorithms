@@ -12,7 +12,6 @@ private fun <T> quickSort(array: Array<T>, lo: Int, hi: Int, isLess: (T, T) -> B
     val j = partition(array, lo, hi, isLess)
     quickSort(array, lo, j - 1, isLess)
     quickSort(array, j + 1, hi, isLess)
-
 }
 
 private fun <T> partition(array: Array<T>, lo: Int, hi: Int, isLess: (T, T) -> Boolean): Int {
@@ -33,7 +32,6 @@ private fun <T> partition(array: Array<T>, lo: Int, hi: Int, isLess: (T, T) -> B
 
     swap(array, lo, j)
     return j
-
 }
 
 private fun <T> swap(array: Array<T>, i: Int, j: Int) {
