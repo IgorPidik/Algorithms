@@ -16,12 +16,13 @@ class PriorityQueue<T>(val isLess: (T?, T?) -> Boolean) {
         swim(N)
     }
 
-    fun getMaxItem(): T? {
-        if(isEmpty()) return null
+    fun getTopItem(): T? {
+        if (isEmpty()) return null
+
         val maxItem = list[1]
         swap(1, N--)
         sink(1)
-        list.removeAt(N+1)
+        list.removeAt(N + 1)
         return maxItem
     }
 
@@ -44,7 +45,7 @@ class PriorityQueue<T>(val isLess: (T?, T?) -> Boolean) {
         while (2 * itemID <= N) {
             var j = itemID * 2
             if (j < N && isLess(list[j], list[j + 1])) j += 1
-            if(!isLess(list[itemID], list[j])) break
+            if (!isLess(list[itemID], list[j])) break
             swap(itemID, j)
             itemID = j
         }
