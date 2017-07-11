@@ -16,7 +16,7 @@ class HeapSort<T>(items: MutableList<T>, val isLess: (T?, T?) -> Boolean) {
     }
 
     fun heapSort() {
-        while(N > 1) {
+        while (N > 1) {
             swap(1, N)
             N -= 1
             sink(1)
@@ -24,7 +24,7 @@ class HeapSort<T>(items: MutableList<T>, val isLess: (T?, T?) -> Boolean) {
     }
 
     private fun convertToHeap() {
-        for(k in N/2 downTo 1) {
+        for (k in N / 2 downTo 1) {
             sink(k)
         }
     }
