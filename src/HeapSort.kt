@@ -12,7 +12,7 @@ class HeapSort<T>(items: MutableList<T>, val isLess: (T?, T?) -> Boolean) {
         convertToHeap()
 
         heapSort()
-        return list
+        return list.subList(1, list.size)
     }
 
     fun heapSort() {
