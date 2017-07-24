@@ -16,7 +16,7 @@ class CountingSort(val array: Array<Int>) {
         }
 
         for (j in 1..countHolder.size - 1) {
-            countHolder[j] = countHolder[j] + countHolder[j - 1]
+            countHolder[j] += countHolder[j - 1]
         }
 
         for (k in array.size - 1 downTo 0) {
