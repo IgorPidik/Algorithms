@@ -28,20 +28,33 @@ class MaxSubArray {
     }
 
     private fun getMaxCrossSubArray(startIndex: Int, midIndex: Int, endIndex: Int): Triple<Int, Int, Int> {
-        var sum = array[midIndex]
+        var sum = 0
+        var leftIndex = midIndex
+        var rightIndex = midIndex
+
+        var maxLeftSum = Int.MIN_VALUE
         var leftMostIndex = midIndex
+        while (leftIndex >= startIndex) {
+            sum += array[leftIndex]
+            if (sum > maxLeftSum) {
+                maxLeftSum = sum
+                leftMostIndex = leftIndex
+            }
+            leftIndex--
+        }
+
+        sum = 0
+        var maxRightSum = Int.MIN_VALUE
         var rightMostIndex = midIndex
-
-        while (leftMostIndex > startIndex && (sum + array[leftMostIndex - 1]) > sum) {
-            leftMostIndex--
-            sum += array[leftMostIndex]
+        while (rightIndex < endIndex) {
+            rightIndex++
+            sum += array[rightIndex]
+            if (sum > maxRightSum) {
+                maxRightSum = sum
+                rightMostIndex = rightIndex
+            }
         }
 
-        while (rightMostIndex < endIndex && (sum + array[rightMostIndex + 1]) > sum) {
-            rightMostIndex++
-            sum += array[rightMostIndex]
-        }
-
-        return Triple(leftMostIndex, rightMostIndex, sum)
+        return Triple(leftMostIndex, rightMostIndex, maxLeftSum + maxRightSum)
     }
 }
