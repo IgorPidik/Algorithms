@@ -33,9 +33,9 @@ Data structures
 ------------
 
 Queues:
--Priority Queue
+- Priority Queue
 
 Arrays:
--Max sub-array algorithm
+- Max sub-array algorithm
 
 
